@@ -3,560 +3,824 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Сценарий — «Сколько стоит ремонт под ключ в Новосибирске?»</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <title>Видео-инструкция (12–18 мин) — версия со сценарным блоком из PDF (редактируемая)</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+        body { 
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
             line-height: 1.6;
-            color: #1a1a1a;
-            background: #fafafa;
-            font-size: 16px;
+            color: #1f2937;
         }
-
-        .container {
-            max-width: 900px;
-            margin: 0 auto;
-            padding: 40px 20px;
-            background: white;
-            box-shadow: 0 0 30px rgba(0,0,0,0.08);
+        .edit-mode .editable { 
+            border: 2px dashed #3b82f6; 
+            padding: 8px; 
+            border-radius: 4px; 
+            background-color: #eff6ff;
         }
-
-        .header {
-            text-align: center;
-            margin-bottom: 60px;
-            padding-bottom: 40px;
-            border-bottom: 2px solid #f0f0f0;
-        }
-
-        .main-title {
-            font-size: 32px;
-            font-weight: 700;
-            color: #2c3e50;
-            margin-bottom: 20px;
-            line-height: 1.3;
-        }
-
-        .subtitle {
-            font-size: 18px;
-            color: #7f8c8d;
-            margin-bottom: 30px;
-        }
-
-        .meta-info {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 20px;
-            text-align: left;
-            background: #f8f9fa;
-            padding: 25px;
-            border-radius: 12px;
-            margin-top: 30px;
-        }
-
-        .meta-item {
-            font-size: 15px;
-        }
-
-        .meta-item strong {
-            color: #2c3e50;
-            font-weight: 600;
-        }
-
-        .nav-menu {
-            position: sticky;
-            top: 0;
-            background: white;
-            padding: 20px 0;
-            border-bottom: 1px solid #e9ecef;
-            margin-bottom: 40px;
-            z-index: 100;
-        }
-
-        .nav-links {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 15px;
-        }
-
-        .nav-link {
-            color: #6c757d;
-            text-decoration: none;
-            padding: 8px 16px;
-            border-radius: 20px;
-            font-size: 14px;
-            font-weight: 500;
-            transition: all 0.3s ease;
-            border: 1px solid #e9ecef;
-        }
-
-        .nav-link:hover {
-            background: #3498db;
-            color: white;
-            border-color: #3498db;
-        }
-
-        .section {
-            margin-bottom: 50px;
-            scroll-margin-top: 100px;
-        }
-
         .section-header {
-            background: linear-gradient(135deg, #3498db, #2980b9);
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             color: white;
-            padding: 20px 30px;
-            border-radius: 12px;
-            margin-bottom: 30px;
+            padding: 1rem 1.5rem;
+            border-radius: 8px;
+            margin: 2rem 0 1rem 0;
         }
-
         .timecode {
-            font-size: 14px;
-            font-weight: 600;
-            opacity: 0.9;
-            margin-bottom: 8px;
-        }
-
-        .section-title {
-            font-size: 20px;
-            font-weight: 700;
-            line-height: 1.4;
-        }
-
-        .subsection {
-            margin-bottom: 30px;
-        }
-
-        .subsection-title {
-            font-size: 16px;
-            font-weight: 600;
-            color: #e74c3c;
-            margin-bottom: 15px;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-        }
-
-        .content {
-            font-size: 16px;
-            line-height: 1.7;
-            margin-bottom: 20px;
-        }
-
-        .dialogue {
-            background: #f8f9fa;
-            border-left: 4px solid #3498db;
-            padding: 20px 25px;
-            margin: 20px 0;
-            border-radius: 0 8px 8px 0;
-            font-style: italic;
-        }
-
-        .graphics-note {
-            background: #fff3cd;
-            border: 1px solid #ffeaa7;
-            padding: 20px;
-            border-radius: 8px;
-            margin: 20px 0;
-        }
-
-        .graphics-title {
-            font-weight: 600;
-            color: #856404;
-            margin-bottom: 10px;
-        }
-
-        .list {
-            padding-left: 25px;
-            margin: 15px 0;
-        }
-
-        .list li {
-            margin-bottom: 8px;
-            font-size: 15px;
-        }
-
-        .highlight {
-            background: #e3f2fd;
-            padding: 2px 6px;
-            border-radius: 4px;
-            font-weight: 500;
-        }
-
-        .cta-section {
-            background: linear-gradient(135deg, #27ae60, #2ecc71);
+            background: #f59e0b;
             color: white;
-            padding: 30px;
-            border-radius: 12px;
-            text-align: center;
+            padding: 0.25rem 0.75rem;
+            border-radius: 20px;
+            font-weight: 600;
+            font-size: 0.875rem;
         }
-
-        .contacts {
-            background: #f8f9fa;
-            padding: 40px;
-            border-radius: 12px;
-            text-align: center;
-            margin-top: 50px;
-            border: 2px dashed #dee2e6;
+        .visual-block {
+            background: #e0f2fe;
+            border-left: 4px solid #0284c7;
+            padding: 1rem;
+            margin: 1rem 0;
         }
-
-        .contacts h3 {
-            color: #6c757d;
-            margin-bottom: 20px;
-            font-size: 18px;
+        .ruslan-block {
+            background: #f0f9ff;
+            border-left: 4px solid #0369a1;
+            padding: 1rem;
+            margin: 1rem 0;
         }
-
-        .contacts-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 30px;
-            margin-top: 20px;
+        .graphics-block {
+            background: #fef3c7;
+            border-left: 4px solid #f59e0b;
+            padding: 1rem;
+            margin: 1rem 0;
         }
-
-        .contact-item {
-            padding: 20px;
+        .nav-menu {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
             background: white;
-            border-radius: 8px;
-            border: 1px solid #e9ecef;
+            border-bottom: 1px solid #e5e7eb;
+            z-index: 1000;
+            padding: 0.75rem 0;
         }
-
-        @media (max-width: 768px) {
-            .container {
-                padding: 20px 15px;
-            }
-            
-            .main-title {
-                font-size: 24px;
-            }
-            
-            .meta-info {
-                grid-template-columns: 1fr;
-            }
-            
-            .nav-links {
-                justify-content: flex-start;
-            }
-            
-            .contacts-grid {
-                grid-template-columns: 1fr;
-            }
+        .main-content {
+            margin-top: 80px;
+            max-width: 1200px;
+            margin-left: auto;
+            margin-right: auto;
+            padding: 0 1rem;
         }
-
+        .checklist-item {
+            display: flex;
+            align-items: flex-start;
+            margin: 0.5rem 0;
+        }
+        .checklist-item input[type="checkbox"] {
+            margin-right: 0.75rem;
+            margin-top: 0.25rem;
+        }
         @media print {
-            body {
-                background: white;
-            }
-            
-            .container {
-                box-shadow: none;
-                max-width: none;
-            }
-            
-            .nav-menu {
-                display: none;
-            }
+            .nav-menu { display: none; }
+            .main-content { margin-top: 0; }
+            body { font-size: 12px; }
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <div class="header">
-            <h1 class="main-title">Сценарий видеоролика</h1>
-            <p class="subtitle">«Сколько стоит на самом деле качественный ремонт квартиры "под ключ" в Новосибирске 2025 году? Реальная смета.»</p>
-            
-            <div class="meta-info">
-                <div class="meta-item">
-                    <strong>Длительность:</strong> 12-15 минут
-                </div>
-                <div class="meta-item">
-                    <strong>Ведущий:</strong> Руслан Мальцев, руководитель компании «Верона»
-                </div>
-                <div class="meta-item" style="grid-column: 1 / -1;">
-                    <strong>Локация:</strong> Полностью готовая квартира в ЖК «Чикаго». Руслан одет в своем стиле: функционально, технологично, но без рабочей униформы (футболка из качественного материала, карго, кроссовки). Он выглядит как инженер, эксперт, а не как продавец.
+    <nav class="nav-menu">
+        <div class="max-w-6xl mx-auto px-4 flex justify-between items-center">
+            <div class="flex space-x-4">
+                <button id="edit-toggle" class="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-md text-sm font-medium transition-colors">
+                    <i class="fas fa-edit mr-2"></i>Режим редактирования
+                </button>
+                <button id="save-html" class="bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded-md text-sm font-medium transition-colors">
+                    <i class="fas fa-download mr-2"></i>Сохранить как HTML
+                </button>
+                <button id="export-pdf" class="bg-red-600 hover:bg-red-700 text-white px-4 py-2 rounded-md text-sm font-medium transition-colors">
+                    <i class="fas fa-file-pdf mr-2"></i>Экспорт в PDF
+                </button>
+            </div>
+            <div class="flex space-x-6 text-sm">
+                <a href="#overview" class="text-gray-600 hover:text-gray-900">Обзор</a>
+                <a href="#script" class="text-gray-600 hover:text-gray-900">Сценарий</a>
+                <a href="#operator" class="text-gray-600 hover:text-gray-900">ТЗ оператора</a>
+                <a href="#broll" class="text-gray-600 hover:text-gray-900">B-roll</a>
+                <a href="#editing" class="text-gray-600 hover:text-gray-900">Монтаж</a>
+                <a href="#youtube" class="text-gray-600 hover:text-gray-900">YouTube</a>
+                <a href="#cta" class="text-gray-600 hover:text-gray-900">CTA</a>
+                <a href="#checklist" class="text-gray-600 hover:text-gray-900">Чек-листы</a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="main-content">
+        <!-- Обложка -->
+        <div class="text-center py-8 border-b-2 border-gray-200 mb-8">
+            <div class="editable">
+                <h1 class="text-4xl font-bold text-gray-900 mb-4">Производственный документ</h1>
+                <h2 class="text-2xl text-gray-700 mb-6">Видео-инструкция «Сколько стоит ремонт под ключ в Новосибирске»</h2>
+                <div class="bg-blue-50 rounded-lg p-6 inline-block">
+                    <p class="text-lg"><strong>Длительность:</strong> 12–15 минут</p>
+                    <p class="text-lg"><strong>Ведущий:</strong> Руслан Мальцев, руководитель компании «Верона»</p>
+                    <p class="text-lg"><strong>Локация:</strong> ЖК «Чикаго», Новосибирск</p>
                 </div>
             </div>
         </div>
 
-        <nav class="nav-menu">
-            <div class="nav-links">
-                <a href="#section-1" class="nav-link">00:00 - Крючок</a>
-                <a href="#section-2" class="nav-link">00:35 - Пять корзин</a>
-                <a href="#section-3" class="nav-link">02:30 - Разбор работ</a>
-                <a href="#section-4" class="nav-link">07:30 - Скрытые расходы</a>
-                <a href="#section-5" class="nav-link">09:30 - Философия</a>
-                <a href="#section-6" class="nav-link">11:00 - CTA</a>
+        <!-- Краткое резюме -->
+        <section id="overview" class="mb-8">
+            <div class="section-header">
+                <h2 class="text-2xl font-bold">Краткое резюме</h2>
             </div>
-        </nav>
+            <div class="editable bg-gray-50 p-6 rounded-lg">
+                <p class="mb-4"><strong>Цель ролика:</strong> Показать реальную стоимость качественного ремонта «под ключ» в Новосибирске на конкретном кейсе, развенчать миф о «цене за квадратный метр», продемонстрировать прозрачность и честность компании «Верона».</p>
+                
+                <p class="mb-4"><strong>Ключевая мысль:</strong> «Цена за метр» — это миф. Реальная стоимость складывается из пяти корзин: работы, черновые материалы, чистовые материалы, спецмонтаж и организационные расходы.</p>
+                
+                <p class="mb-4"><strong>Объект:</strong> Квартира 67 м² в ЖК «Чикаго», стоимость работ — 2 338 087 ₽ (34 654 ₽/м²)</p>
+                
+                <p><strong>CTA:</strong> Бесплатный выезд инженера-сметчика, расчёт подробной сметы за 48 часов</p>
+            </div>
+        </section>
 
-        <div class="content">
-            <p style="text-align: center; font-weight: 600; margin-bottom: 40px; color: #2c3e50;">(НАЧАЛО ВИДЕО)</p>
+        <!-- Цели и позиционирование -->
+        <section class="mb-8">
+            <div class="section-header">
+                <h2 class="text-2xl font-bold">1. Цели и позиционирование</h2>
+            </div>
+            <div class="editable bg-gray-50 p-6 rounded-lg">
+                <h3 class="text-lg font-semibold mb-3">Целевая аудитория</h3>
+                <ul class="list-disc pl-6 mb-6">
+                    <li>Собственники квартир в Новосибирске, планирующие ремонт</li>
+                    <li>Люди, получившие неадекватно низкие или высокие оценки стоимости</li>
+                    <li>Клиенты, пострадавшие от непрозрачного ценообразования</li>
+                </ul>
+                
+                <h3 class="text-lg font-semibold mb-3">Позиционирование Руслана</h3>
+                <p class="mb-4">Инженер-эксперт, а не продавец. Технолог, который объясняет сложное простыми словами. Образ: функциональная одежда качественных материалов, без рабочей униформы.</p>
+                
+                <h3 class="text-lg font-semibold mb-3">Ключевые принципы подачи</h3>
+                <ul class="list-disc pl-6">
+                    <li>Максимальная конкретика и документальные пруфы</li>
+                    <li>Спокойный, уверенный тон без агрессии</li>
+                    <li>Честность о сложностях и подводных камнях</li>
+                    <li>Образовательная ценность превыше продажи</li>
+                </ul>
+            </div>
+        </section>
 
-            <section id="section-1" class="section">
-                <div class="section-header">
-                    <div class="timecode">[00:00 – 00:35]</div>
-                    <h2 class="section-title">КРЮЧОК: РАЗРУШЕНИЕ ГЛАВНОГО МИФА</h2>
+        <!-- СЦЕНАРИЙ -->
+        <section id="script" class="mb-8">
+            <div class="section-header">
+                <h2 class="text-2xl font-bold">2. Сценарий видеоролика</h2>
+            </div>
+            
+            <div class="editable">
+                <!-- Название и основная информация -->
+                <div class="bg-blue-50 p-6 rounded-lg mb-6">
+                    <h3 class="text-xl font-bold mb-2">Название ролика:</h3>
+                    <p class="text-lg mb-4">Сколько стоит на самом деле качественный ремонт квартиры "под ключ" в Новосибирске 2025 году? Реальная смета.</p>
+                    
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                        <div><strong>Длительность:</strong> 12-15 минут</div>
+                        <div><strong>Ведущий:</strong> Руслан Мальцев, руководитель компании «Верона»</div>
+                        <div><strong>Локация:</strong> Полностью готовая квартира в ЖК «Чикаго»</div>
+                    </div>
+                    
+                    <p class="mt-4 text-sm text-gray-600">Руслан одет в своем стиле: функционально, технологично, но без рабочей униформы (футболка из качественного материала, карго, кроссовки). Он выглядит как инженер, эксперт, а не как продавец.</p>
                 </div>
 
-                <div class="subsection">
-                    <h3 class="subsection-title">ВИЗУАЛ:</h3>
-                    <div class="content">
-                        <ul class="list">
+                <!-- Сцена 1: Крючок -->
+                <div class="mb-8">
+                    <div class="flex items-center mb-4">
+                        <span class="timecode">[00:00 – 00:35]</span>
+                        <h3 class="text-xl font-bold ml-4">КРЮЧОК: РАЗРУШЕНИЕ ГЛАВНОГО МИФА</h3>
+                    </div>
+                    
+                    <div class="visual-block">
+                        <h4 class="font-semibold text-blue-800 mb-2"><i class="fas fa-video mr-2"></i>ВИЗУАЛ:</h4>
+                        <ul class="list-disc pl-4">
                             <li>Камера медленно пролетает по идеальной, залитой светом кухне-гостиной.</li>
                             <li>Стильный интерьер, идеальные стыки, сложные световые решения.</li>
                             <li>В кадре появляется Руслан. Он стоит, прислонившись к кухонному острову, смотрит прямо в камеру. Спокойный, уверенный взгляд.</li>
                         </ul>
                     </div>
-                </div>
 
-                <div class="subsection">
-                    <h3 class="subsection-title">РУСЛАН:</h3>
-                    <div class="dialogue">
-                        (Спокойно, без суеты) «Сколько стоит хороший ремонт? Если вы начнете искать ответ в интернете, ваша голова взорвется. Кто-то обещает сделать "под ключ" за 15 тысяч рублей за квадратный метр. Кто-то пугает цифрами в 50 тысяч. Кому верить? (Пауза, смотрит прямо в глаза зрителю)
-                        <br><br>
-                        Никому. Потому что "цена за квадратный метр" — это главный миф и самый большой обман в нашей индустрии.
-                        <br><br>
-                        Мы находимся в квартире в Новосибирске, 67 квадратных метров. Стоимость работ здесь составила <span class="highlight">34 654 рубля за квадратный метр</span>. И сегодня я покажу вам, из чего на самом деле сложилась эта цифра. Не из воздуха, а из 12 актов выполненных работ. Досмотрите до конца, и вы поймете, как формируется честная смета и где вы рискуете потерять до 30% бюджета, доверяя пустым обещаниям».
+                    <div class="ruslan-block">
+                        <h4 class="font-semibold text-blue-900 mb-2"><i class="fas fa-user mr-2"></i>РУСЛАН:</h4>
+                        <p class="italic mb-2">(Спокойно, без суеты)</p>
+                        <p class="mb-4">«Сколько стоит хороший ремонт? Если вы начнете искать ответ в интернете, ваша голова взорвется. Кто-то обещает сделать "под ключ" за 15 тысяч рублей за квадратный метр. Кто-то пугает цифрами в 50 тысяч. Кому верить? <em>(Пауза, смотрит прямо в глаза зрителю)</em></p>
+                        
+                        <p class="mb-4">Никому. Потому что "цена за квадратный метр" — это главный миф и самый большой обман в нашей индустрии.</p>
+                        
+                        <p>Мы находимся в квартире в Новосибирске, 67 квадратных метров. Стоимость работ здесь составила 34 654 рубля за квадратный метр. И сегодня я покажу вам, из чего на самом деле сложилась эта цифра. Не из воздуха, а из 12 актов выполненных работ. Досмотрите до конца, и вы поймете, как формируется честная смета и где вы рискуете потерять до 30% бюджета, доверяя пустым обещаниям».</p>
                     </div>
-                </div>
 
-                <div class="graphics-note">
-                    <div class="graphics-title">ГРАФИКА:</div>
-                    <ul class="list">
-                        <li>На экране появляется заголовок: <strong>СКОЛЬКО РЕАЛЬНО СТОИТ РЕМОНТ?</strong></li>
-                        <li>Под ним крупно цифра: <strong>34 654 руб/м² (только работы)</strong></li>
-                        <li>Дисклеймер: г. Новосибирск, 2025 г.</li>
-                    </ul>
-                </div>
-            </section>
-
-            <section id="section-2" class="section">
-                <div class="section-header">
-                    <div class="timecode">[00:35 – 02:30]</div>
-                    <h2 class="section-title">ПОЧЕМУ «ЦЕНА ЗА МЕТР» НЕ РАБОТАЕТ. КОНЦЕПЦИЯ «ПЯТИ КОРЗИН»</h2>
-                </div>
-
-                <div class="subsection">
-                    <h3 class="subsection-title">ВИЗУАЛ:</h3>
-                    <div class="content">
-                        <ul class="list">
-                            <li>Руслан остается у кухонного острова. Камера берет его средним планом. Он говорит просто, как будто объясняет сложное другу.</li>
-                            <li>Сбоку от него появляется анимированная инфографика: пять пустых «корзин».</li>
+                    <div class="graphics-block">
+                        <h4 class="font-semibold text-yellow-800 mb-2"><i class="fas fa-palette mr-2"></i>ГРАФИКА:</h4>
+                        <ul class="list-disc pl-4">
+                            <li>На экране появляется заголовок: <strong>СКОЛЬКО РЕАЛЬНО СТОИТ РЕМОНТ?</strong></li>
+                            <li>Под ним крупно цифра: <strong>34 654 руб/м² (только работы)</strong></li>
+                            <li>Дисклеймер: г. Новосибирск, 2025 г.</li>
                         </ul>
                     </div>
                 </div>
 
-                <div class="subsection">
-                    <h3 class="subsection-title">РУСЛАН:</h3>
-                    <div class="dialogue">
-                        «Итак, почему "цена за метр" — это ложь? Потому что она не учитывает три главных фактора: сложность инженерии, класс отделочных материалов и ваши личные "хотелки". Сравните: положить ламинат или уложить кварцвинил "английской ёлкой"? Покрасить стены или нанести декоративную штукатурку? Установить обычный радиатор или смонтировать сложный внутрипольный конвектор? Каждое такое решение может изменить итоговую стоимость работ в разы. Чтобы вы никогда не стали жертвой манипуляций, запомните: любой честный бюджет на ремонт состоит из пяти больших "корзин".
+                <!-- Сцена 2: Концепция пяти корзин -->
+                <div class="mb-8">
+                    <div class="flex items-center mb-4">
+                        <span class="timecode">[00:35 – 02:30]</span>
+                        <h3 class="text-xl font-bold ml-4">ПОЧЕМУ «ЦЕНА ЗА МЕТР» НЕ РАБОТАЕТ. КОНЦЕПЦИЯ «ПЯТИ КОРЗИН»</h3>
+                    </div>
+                    
+                    <div class="visual-block">
+                        <h4 class="font-semibold text-blue-800 mb-2"><i class="fas fa-video mr-2"></i>ВИЗУАЛ:</h4>
+                        <ul class="list-disc pl-4">
+                            <li>Руслан остается у кухонного острова. Камера берет его средним планом. Он говорит просто, как будто объясняет сложное другу.</li>
+                            <li>Сбоку от него появляется анимированная инфографика: пять пустых «корзин».</li>
+                        </ul>
+                    </div>
+
+                    <div class="ruslan-block">
+                        <h4 class="font-semibold text-blue-900 mb-2"><i class="fas fa-user mr-2"></i>РУСЛАН:</h4>
+                        <p class="mb-4">«Итак, почему "цена за метр" — это ложь? Потому что она не учитывает три главных фактора: сложность инженерии, класс отделочных материалов и ваши личные "хотелки". Сравните: положить ламинат или уложить кварцвинил "английской ёлкой"? Покрасить стены или нанести декоративную штукатурку? Установить обычный радиатор или смонтировать сложный внутрипольный конвектор? Каждое такое решение может изменить итоговую стоимость работ в разы. Чтобы вы никогда не стали жертвой манипуляций, запомните: любой честный бюджет на ремонт состоит из пяти больших "корзин".</p>
+                        
+                        <p>Сегодня мы на примере этой квартиры разберем самую дорогую и важную корзину — "Работы". Именно здесь подрядчики чаще всего "забывают" посчитать половину операций, чтобы заманить вас низкой ценой».</p>
+                    </div>
+
+                    <div class="graphics-block">
+                        <h4 class="font-semibold text-yellow-800 mb-2"><i class="fas fa-palette mr-2"></i>ГРАФИКА:</h4>
+                        <p class="mb-2">Инфографика на экране. Корзины подписываются по очереди, когда Руслан их называет:</p>
+                        <ol class="list-decimal pl-4">
+                            <li><strong>РАБОТЫ</strong></li>
+                            <li><strong>ЧЕРНОВЫЕ МАТЕРИАЛЫ</strong></li>
+                            <li><strong>ЧИСТОВЫЕ МАТЕРИАЛЫ</strong></li>
+                            <li><strong>СПЕЦМОНТАЖ И ОБОРУДОВАНИЕ</strong></li>
+                            <li><strong>ОРГАНИЗАЦИОННЫЕ РАСХОДЫ</strong></li>
+                        </ol>
                     </div>
                 </div>
 
-                <div class="graphics-note">
-                    <div class="graphics-title">ГРАФИКА:</div>
-                    <p>Инфографика на экране. Корзины подписываются по очереди, когда Руслан их называет:</p>
-                    <ol class="list">
-                        <li><strong>РАБОТЫ</strong></li>
-                        <li><strong>ЧЕРНОВЫЕ МАТЕРИАЛЫ</strong></li>
-                        <li><strong>ЧИСТОВЫЕ МАТЕРИАЛЫ</strong></li>
-                        <li><strong>СПЕЦМОНТАЖ И ОБОРУДОВАНИЕ</strong></li>
-                        <li><strong>ОРГАНИЗАЦИОННЫЕ РАСХОДЫ</strong></li>
-                    </ol>
-                </div>
-
-                <div class="subsection">
-                    <h3 class="subsection-title">РУСЛАН:</h3>
-                    <div class="dialogue">
-                        «Сегодня мы на примере этой квартиры разберем самую дорогую и важную корзину — "Работы". Именно здесь подрядчики чаще всего "забывают" посчитать половину операций, чтобы заманить вас низкой ценой».
+                <!-- Сцена 3: Глубокий разбор работ -->
+                <div class="mb-8">
+                    <div class="flex items-center mb-4">
+                        <span class="timecode">[02:30 – 07:30]</span>
+                        <h3 class="text-xl font-bold ml-4">ГЛУБОКИЙ РАЗБОР КОРЗИНЫ «РАБОТЫ» НА РЕАЛЬНОМ КЕЙСЕ</h3>
                     </div>
-                </div>
-            </section>
-
-            <section id="section-3" class="section">
-                <div class="section-header">
-                    <div class="timecode">[02:30 – 07:30]</div>
-                    <h2 class="section-title">ГЛУБОКИЙ РАЗБОР КОРЗИНЫ «РАБОТЫ» НА РЕАЛЬНОМ КЕЙСЕ</h2>
-                </div>
-
-                <div class="subsection">
-                    <h3 class="subsection-title">ВИЗУАЛ:</h3>
-                    <div class="content">
-                        <ul class="list">
+                    
+                    <div class="visual-block">
+                        <h4 class="font-semibold text-blue-800 mb-2"><i class="fas fa-video mr-2"></i>ВИЗУАЛ:</h4>
+                        <ul class="list-disc pl-4">
                             <li>Динамичный монтаж. Руслан перемещается по квартире, останавливаясь в разных зонах.</li>
                             <li>Постоянные врезки (B-roll): фотографии объекта «ДО» (бетонная коробка).</li>
                             <li>На экране появляются цифры из актов выполненных работ, когда Руслан их озвучивает.</li>
                             <li>В углу экрана — инфографика. Корзина «РАБОТЫ» начинает постепенно заполняться с каждой названной суммой.</li>
                         </ul>
                     </div>
-                </div>
 
-                <div class="subsection">
-                    <h3 class="subsection-title">РУСЛАН:</h3>
-                    <div class="dialogue">
-                        (Стоя в коридоре) «Все началось с нуля. Точнее, с полного демонтажа. Мы снесли <span class="highlight">29 квадратных метров</span> некачественных перегородок от застройщика. Это обошлось в <span class="highlight">30 450 рублей</span>. Затем возвели <span class="highlight">21,8 квадратных метра</span> новых стен из пазогребневых плит по технологии, с виброразвязкой. Плюс усилили дверной проем под скрытую дверь кастомным металлическим каркасом. Этот этап — еще <span class="highlight">84 020 рублей</span>. Уже больше 130 тысяч, а мы еще даже не начали отделку. (Переходит в гостиную, камера следует за ним)
-                        <br><br>
-                        Дальше — инженерия. Это — "айсберг", 90% которого скрыто от глаз, но именно здесь "тонут" бюджеты. Электрика. Мы проложили <span class="highlight">541 метр кабеля</span>. Чтобы его спрятать, мы проштробили <span class="highlight">82 метра каналов</span> в стенах. Установили <span class="highlight">55 подрозетников и 20 распределительных коробок</span> со сваркой контактов. Стоимость этих скрытых, но фундаментальных работ — <span class="highlight">203 515 рублей</span>. (Подходит к стене со световыми линиями)
-                        <br><br>
-                        Вот эти эффектные световые линии потребовали штробления еще <span class="highlight">18 метров</span> в стенах и обошлись в <span class="highlight">20 250 рублей</span> только за монтаж.
-                        <br><br>
-                        (Перемещается в санузел)
-                        <br><br>
-                        Сантехника. Это не просто "подключить унитаз". Мы перенесли ввод воды, врезались в чугунный стояк, смонтировали коллекторную группу FAR на 13 точек, систему защиты от протечек, инсталляцию Grohe, душевой трап Tece. Весь этот сложнейший узел стоил <span class="highlight">169 040 рублей</span>.
-                        <br><br>
-                        (Возвращается в гостиную)
-                        <br><br>
-                        И только теперь начинается самая дорогая часть — отделочные работы. Мы оштукатурили стены, поклеили <span class="highlight">91 квадратный метр стеклохолста</span>, нанесли несколько слоев шпатлевки и отшлифовали все поверхности под боковой свет — это когда виден малейший изъян. Только после этого нанесли <span class="highlight">124 квадратных метра декоративной штукатурки "замша"</span>. А в санузле наши мастера уложили широкоформатный керамогранит и запилили под 45 градусов <span class="highlight">29 погонных метров внешних углов</span> — это ювелирная работа. Весь этот огромный комплекс отделочных работ, от штукатурки до финишного покрытия, стоил <span class="highlight">1 102 799 рублей</span>.
+                    <div class="ruslan-block">
+                        <h4 class="font-semibold text-blue-900 mb-2"><i class="fas fa-user mr-2"></i>РУСЛАН:</h4>
+                        <p class="mb-4 italic">(Стоя в коридоре)</p>
+                        <p class="mb-4">«Все началось с нуля. Точнее, с полного демонтажа. Мы снесли 29 квадратных метров некачественных перегородок от застройщика. Это обошлось в 30 450 рублей. Затем возвели 21,8 квадратных метра новых стен из пазогребневых плит по технологии, с виброразвязкой. Плюс усилили дверной проем под скрытую дверь кастомным металлическим каркасом. Этот этап — еще 84 020 рублей. Уже больше 130 тысяч, а мы еще даже не начали отделку.</p>
+                        
+                        <p class="mb-4 italic">(Переходит в гостиную, камера следует за ним)</p>
+                        
+                        <p class="mb-4">Дальше — инженерия. Это — "айсберг", 90% которого скрыто от глаз, но именно здесь "тонут" бюджеты. Электрика. Мы проложили 541 метр кабеля. Чтобы его спрятать, мы проштробили 82 метра каналов в стенах. Установили 55 подрозетников и 20 распределительных коробок со сваркой контактов. Стоимость этих скрытых, но фундаментальных работ — 203 515 рублей.</p>
+                        
+                        <p class="mb-4 italic">(Подходит к стене со световыми линиями)</p>
+                        
+                        <p class="mb-4">Вот эти эффектные световые линии потребовали штробления еще 18 метров в стенах и обошлись в 20 250 рублей только за монтаж.</p>
+                        
+                        <p class="mb-4 italic">(Перемещается в санузел)</p>
+                        
+                        <p class="mb-4">Сантехника. Это не просто "подключить унитаз". Мы перенесли ввод воды, врезались в чугунный стояк, смонтировали коллекторную группу FAR на 13 точек, систему защиты от протечек, инсталляцию Grohe, душевой трап Tece. Весь этот сложнейший узел стоил 169 040 рублей.</p>
+                        
+                        <p class="mb-4 italic">(Возвращается в гостиную)</p>
+                        
+                        <p>И только теперь начинается самая дорогая часть — отделочные работы. Мы оштукатурили стены, поклеили 91 квадратный метр стеклохолста, нанесли несколько слоев шпатлевки и отшлифовали все поверхности под боковой свет — это когда виден малейший изъян. Только после этого нанесли 124 квадратных метра декоративной штукатурки "замша". А в санузле наши мастера уложили широкоформатный керамогранит и запилили под 45 градусов 29 погонных метров внешних углов — это ювелирная работа. Весь этот огромный комплекс отделочных работ, от штукатурки до финишного покрытия, стоил 1 102 799 рублей.</p>
+                    </div>
+
+                    <div class="graphics-block">
+                        <h4 class="font-semibold text-yellow-800 mb-2"><i class="fas fa-palette mr-2"></i>ГРАФИКА:</h4>
+                        <ul class="list-disc pl-4">
+                            <li>Корзина «РАБОТЫ» на экране заполнена. Финальная сумма в ней: <strong>2 338 087 руб.</strong></li>
+                        </ul>
+                    </div>
+
+                    <div class="ruslan-block mt-4">
+                        <h4 class="font-semibold text-blue-900 mb-2"><i class="fas fa-user mr-2"></i>РУСЛАН:</h4>
+                        <p>«Добавим сюда монтаж потолков со сложными световыми линиями (318 740 руб.), укладку кварцвинила "ёлочкой" (92 225 руб.), установку всех розеток, светильников и чистовой сантехники… И мы получим итоговую стоимость работ: 2 миллиона 338 тысяч рублей».</p>
                     </div>
                 </div>
 
-                <div class="graphics-note">
-                    <div class="graphics-title">ГРАФИКА:</div>
-                    <p>Корзина «РАБОТЫ» на экране заполнена. Финальная сумма в ней: <strong>2 338 087 руб.</strong></p>
-                </div>
-
-                <div class="subsection">
-                    <h3 class="subsection-title">РУСЛАН:</h3>
-                    <div class="dialogue">
-                        «Добавим сюда монтаж потолков со сложными световыми линиями (<span class="highlight">318 740 руб.</span>), укладку кварцвинила "ёлочкой" (<span class="highlight">92 225 руб.</span>), установку всех розеток, светильников и чистовой сантехники… И мы получим итоговую стоимость работ: <span class="highlight">2 миллиона 338 тысяч рублей</span>».
+                <!-- Сцена 4: Скрытые расходы -->
+                <div class="mb-8">
+                    <div class="flex items-center mb-4">
+                        <span class="timecode">[07:30 – 09:30]</span>
+                        <h3 class="text-xl font-bold ml-4">СКРЫТЫЕ РАСХОДЫ И «БЮДЖЕТНЫЕ ЛОВУШКИ»</h3>
                     </div>
-                </div>
-            </section>
-
-            <section id="section-4" class="section">
-                <div class="section-header">
-                    <div class="timecode">[07:30 – 09:30]</div>
-                    <h2 class="section-title">СКРЫТЫЕ РАСХОДЫ И «БЮДЖЕТНЫЕ ЛОВУШКИ»</h2>
-                </div>
-
-                <div class="subsection">
-                    <h3 class="subsection-title">ВИЗУАЛ:</h3>
-                    <div class="content">
-                        <ul class="list">
+                    
+                    <div class="visual-block">
+                        <h4 class="font-semibold text-blue-800 mb-2"><i class="fas fa-video mr-2"></i>ВИЗУАЛ:</h4>
+                        <ul class="list-disc pl-4">
                             <li>Руслан стоит в зоне душевой. Камера показывает сначала общую красоту, а потом фокусируется на встроенном в стену смесителе.</li>
                             <li>На экране появляется сравнение: фото встроенной душевой системы vs фото обычной накладной. Под каждой — примерная стоимость «под ключ».</li>
                         </ul>
                     </div>
-                </div>
 
-                <div class="subsection">
-                    <h3 class="subsection-title">РУСЛАН:</h3>
-                    <div class="dialogue">
-                        «А теперь о том, где еще прячутся деньги. Вот эта встроенная душевая система выглядит лаконично. Но ее монтаж стоит в 3-4 раза дороже, чем установка обычного накладного смесителя. Почему? Потому что это штробление бетона, сложная гидроизоляция, монтаж скрытого механизма. Это — классический пример "бюджетной ловушки". Вы видите в магазине красивый кран, а не догадываетесь, что его установка потянет за собой целый пласт дорогих работ. И таких моментов — десятки. Организационные расходы. Доставка и подъем материалов. Вывоз строительного мусора. На этом объекте это стоило больше <span class="highlight">50 000 рублей</span>. Кто-то включает это в смету? Редко. Спецмонтаж. Установка кондиционеров, систем вентиляции (бризеров), встроенной мебели. Это отдельные подрядчики и отдельные бюджеты, о которых часто "забывают" сказать на старте. (Смотрит в камеру, доверительно)
-                        <br><br>
-                        Именно поэтому смета на одной страничке — это прямой путь к переплате в 20-30%.
+                    <div class="ruslan-block">
+                        <h4 class="font-semibold text-blue-900 mb-2"><i class="fas fa-user mr-2"></i>РУСЛАН:</h4>
+                        <p class="mb-4">«А теперь о том, где еще прячутся деньги. Вот эта встроенная душевая система выглядит лаконично. Но ее монтаж стоит в 3-4 раза дороже, чем установка обычного накладного смесителя. Почему? Потому что это штробление бетона, сложная гидроизоляция, монтаж скрытого механизма. Это — классический пример "бюджетной ловушки". Вы видите в магазине красивый кран, а не догадываетесь, что его установка потянет за собой целый пласт дорогих работ. И таких моментов — десятки.</p>
+                        
+                        <p class="mb-4">Организационные расходы. Доставка и подъем материалов. Вывоз строительного мусора. На этом объекте это стоило больше 50 000 рублей. Кто-то включает это в смету? Редко.</p>
+                        
+                        <p class="mb-4">Спецмонтаж. Установка кондиционеров, систем вентиляции (бризеров), встроенной мебели. Это отдельные подрядчики и отдельные бюджеты, о которых часто "забывают" сказать на старте.</p>
+                        
+                        <p class="italic">(Смотрит в камеру, доверительно)</p>
+                        
+                        <p>Именно поэтому смета на одной страничке — это прямой путь к переплате в 20-30%.</p>
+                    </div>
+
+                    <div class="graphics-block">
+                        <h4 class="font-semibold text-yellow-800 mb-2"><i class="fas fa-palette mr-2"></i>ГРАФИКА:</h4>
+                        <p class="mb-2">На экране появляется чек-лист: <strong>СКРЫТЫЕ РАСХОДЫ</strong></p>
+                        <ul class="list-disc pl-4">
+                            <li>Доставка и подъем материалов</li>
+                            <li>Вывоз мусора</li>
+                            <li>Установка кондиционеров</li>
+                            <li>Монтаж встроенной мебели</li>
+                            <li>Финишный клининг</li>
+                        </ul>
                     </div>
                 </div>
 
-                <div class="graphics-note">
-                    <div class="graphics-title">ГРАФИКА:</div>
-                    <p>На экране появляется чек-лист: <strong>СКРЫТЫЕ РАСХОДЫ</strong></p>
-                    <ul class="list">
-                        <li>Доставка и подъем материалов</li>
-                        <li>Вывоз мусора</li>
-                        <li>Установка кондиционеров</li>
-                        <li>Монтаж встроенной мебели</li>
-                        <li>Финишный клининг</li>
-                    </ul>
-                </div>
-            </section>
-
-            <section id="section-5" class="section">
-                <div class="section-header">
-                    <div class="timecode">[09:30 – 11:00]</div>
-                    <h2 class="section-title">ФИЛОСОФИЯ ЧЕСТНОГО ПОДРЯДЧИКА</h2>
-                </div>
-
-                <div class="subsection">
-                    <h3 class="subsection-title">ВИЗУАЛ:</h3>
-                    <div class="content">
-                        <ul class="list">
+                <!-- Сцена 5: Философия честного подрядчика -->
+                <div class="mb-8">
+                    <div class="flex items-center mb-4">
+                        <span class="timecode">[09:30 – 11:00]</span>
+                        <h3 class="text-xl font-bold ml-4">ФИЛОСОФИЯ ЧЕСТНОГО ПОДРЯДЧИКА</h3>
+                    </div>
+                    
+                    <div class="visual-block">
+                        <h4 class="font-semibold text-blue-800 mb-2"><i class="fas fa-video mr-2"></i>ВИЗУАЛ:</h4>
+                        <ul class="list-disc pl-4">
                             <li>Руслан снова в центре гостиной. Говорит спокойно, уверенно, как наставник.</li>
                             <li>На экране на секунду появляется фрагмент реального договора и сметы (персональные данные замазаны).</li>
                         </ul>
                     </div>
-                </div>
 
-                <div class="subsection">
-                    <h3 class="subsection-title">РУСЛАН:</h3>
-                    <div class="dialogue">
-                        «Так как же выбрать подрядчика и не прогадать? Перестаньте искать самую низкую цену за метр. Ищите максимальную детализацию. Ваша главная защита — это подробная смета. Документ, где прописана каждая работа, ее объем и стоимость. Моя философия проста: смета — это не приговор, это план безопасности вашего бюджета. Мы фиксируем эту смету в договоре, и она не меняется. Вместе с ней мы фиксируем и подробный график работ. Вы всегда знаете, что происходит на объекте, когда следующий этап и сколько денег на него потребуется.
-                        <br><br>
-                        Стройка — это оркестр. А смета и график — это его партитура. Без нее будет только шум и хаос».
+                    <div class="ruslan-block">
+                        <h4 class="font-semibold text-blue-900 mb-2"><i class="fas fa-user mr-2"></i>РУСЛАН:</h4>
+                        <p class="mb-4">«Так как же выбрать подрядчика и не прогадать? Перестаньте искать самую низкую цену за метр. Ищите максимальную детализацию. Ваша главная защита — это подробная смета. Документ, где прописана каждая работа, ее объем и стоимость.</p>
+                        
+                        <p class="mb-4">Моя философия проста: смета — это не приговор, это план безопасности вашего бюджета. Мы фиксируем эту смету в договоре, и она не меняется. Вместе с ней мы фиксируем и подробный график работ. Вы всегда знаете, что происходит на объекте, когда следующий этап и сколько денег на него потребуется.</p>
+                        
+                        <p>Стройка — это оркестр. А смета и график — это его партитура. Без нее будет только шум и хаос».</p>
                     </div>
                 </div>
-            </section>
 
-            <section id="section-6" class="section">
-                <div class="section-header cta-section">
-                    <div class="timecode">[11:00 – 12:00]</div>
-                    <h2 class="section-title">ФИНАЛЬНЫЙ ПРИЗЫВ К ДЕЙСТВИЮ (CTA)</h2>
-                </div>
-
-                <div class="subsection">
-                    <h3 class="subsection-title">ВИЗУАЛ:</h3>
-                    <div class="content">
-                        <ul class="list">
+                <!-- Сцена 6: CTA -->
+                <div class="mb-8">
+                    <div class="flex items-center mb-4">
+                        <span class="timecode">[11:00 – 12:00]</span>
+                        <h3 class="text-xl font-bold ml-4">ФИНАЛЬНЫЙ ПРИЗЫВ К ДЕЙСТВИЮ (CTA)</h3>
+                    </div>
+                    
+                    <div class="visual-block">
+                        <h4 class="font-semibold text-blue-800 mb-2"><i class="fas fa-video mr-2"></i>ВИЗУАЛ:</h4>
+                        <ul class="list-disc pl-4">
                             <li>Крупный план Руслана. Он говорит прямо в камеру, максимально искренне.</li>
                             <li>На экране появляется финальная плашка.</li>
                         </ul>
                     </div>
-                </div>
 
-                <div class="subsection">
-                    <h3 class="subsection-title">РУСЛАН:</h3>
-                    <div class="dialogue">
-                        «Ремонт не должен быть стрессом. Это процесс созидания, рождения вашего нового дома. И он может быть предсказуемым и спокойным. Все начинается с честности и одного простого шага. Если вы хотите получить не мифическую "цену за метр", а реальный, подробный финансовый план вашего будущего ремонта, мы готовы вам в этом помочь.
-                        <br><br>
-                        Наш инженер-сметчик бесплатно приедет на ваш объект в Новосибирске, сделает точные замеры и за 40-60 минут обсудит с вами все детали. А через 48 часов у вас на почте будет та самая подробная смета, которая станет вашей главной защитой от переплат и нервов».
+                    <div class="ruslan-block">
+                        <h4 class="font-semibold text-blue-900 mb-2"><i class="fas fa-user mr-2"></i>РУСЛАН:</h4>
+                        <p class="mb-4">«Ремонт не должен быть стрессом. Это процесс созидания, рождения вашего нового дома. И он может быть предсказуемым и спокойным. Все начинается с честности и одного простого шага.</p>
+                        
+                        <p>Если вы хотите получить не мифическую "цену за метр", а реальный, подробный финансовый план вашего будущего ремонта, мы готовы вам в этом помочь.</p>
+                        
+                        <p>Наш инженер-сметчик бесплатно приедет на ваш объект в Новосибирске, сделает точные замеры и за 40-60 минут обсудит с вами все детали. А через 48 часов у вас на почте будет та самая подробная смета, которая станет вашей главной защитой от переплат и нервов».</p>
+                    </div>
+
+                    <div class="graphics-block">
+                        <h4 class="font-semibold text-yellow-800 mb-2"><i class="fas fa-palette mr-2"></i>ГРАФИКА (финальная плашка):</h4>
+                        <div class="bg-blue-100 p-4 rounded border-l-4 border-blue-500">
+                            <p class="font-bold text-lg mb-2">ПОЛУЧИТЕ ТОЧНУЮ СМЕТУ ВАШЕГО РЕМОНТА ЗА 48 ЧАСОВ</p>
+                            <ul class="list-disc pl-4">
+                                <li>Бесплатный выезд инженера-сметчика в Новосибирске (+15 км)</li>
+                                <li>Телефон компании «Верона»</li>
+                                <li>Сайт компании «Верона»</li>
+                                <li>QR-код на форму заявки</li>
+                            </ul>
+                        </div>
                     </div>
                 </div>
-
-                <div class="graphics-note">
-                    <div class="graphics-title">ГРАФИКА (финальная плашка):</div>
-                    <ul class="list">
-                        <li><strong>ПОЛУЧИТЕ ТОЧНУЮ СМЕТУ ВАШЕГО РЕМОНТА ЗА 48 ЧАСОВ</strong></li>
-                        <li>Бесплатный выезд инженера-сметчика в Новосибирске (+15 км)</li>
-                        <li>Телефон компании «Верона»</li>
-                        <li>Сайт компании «Верона»</li>
-                        <li>QR-код на форму заявки</li>
-                    </ul>
-                </div>
-            </section>
-
-            <div class="contacts">
-                <h3>📞 Контакты и QR-код</h3>
-                <div class="contacts-grid">
-                    <div class="contact-item">
-                        <strong>Телефон:</strong><br>
-                        [Вставить номер телефона]
-                    </div>
-                    <div class="contact-item">
-                        <strong>QR-код заявки:</strong><br>
-                        [Место для QR-кода]
-                    </div>
-                </div>
-                <p style="margin-top: 20px; color: #6c757d; font-size: 14px;">
-                    * Данный раздел предназначен для размещения актуальных контактных данных
-                </p>
             </div>
-        </div>
+        </section>
+
+        <!-- ТЗ для оператора -->
+        <section id="operator" class="mb-8">
+            <div class="section-header">
+                <h2 class="text-2xl font-bold">3. Техническое задание для оператора</h2>
+            </div>
+            <div class="editable bg-gray-50 p-6 rounded-lg">
+                <h3 class="text-lg font-semibold mb-3">Камера и оптика</h3>
+                <ul class="list-disc pl-6 mb-6">
+                    <li><strong>Основная оптика:</strong> 24–70 мм f/2.8 для универсального использования</li>
+                    <li><strong>Портреты:</strong> 35 мм/50 мм для говорящей головы и деталей</li>
+                    <li><strong>Стабилизация:</strong> использовать стабилизатор или плавную ручную съёмку</li>
+                    <li><strong>Разрешение:</strong> минимум 4K для возможности кропа в пост-продакшене</li>
+                </ul>
+                
+                <h3 class="text-lg font-semibold mb-3">Звук</h3>
+                <ul class="list-disc pl-6 mb-6">
+                    <li>Петличный микрофон на Руслана + внешний рекордер</li>
+                    <li>Резервная запись: направленный микрофон на камере</li>
+                    <li>Обязательная проверка уровней перед каждым дублем</li>
+                    <li>Запись «чистого шума» помещения (20-30 сек) для монтажа</li>
+                </ul>
+                
+                <h3 class="text-lg font-semibold mb-3">Освещение</h3>
+                <ul class="list-disc pl-6 mb-6">
+                    <li>Приоритет естественному освещению квартиры</li>
+                    <li>Дополнительный мягкий источник света (1–2 шт.) для лица ведущего</li>
+                    <li>Избегать жёстких теней на планах и документах</li>
+                    <li>Проверить равномерность освещения при движении по квартире</li>
+                </ul>
+                
+                <h3 class="text-lg font-semibold mb-3">Планы и движения камеры</h3>
+                <ul class="list-disc pl-6">
+                    <li><strong>Говорящая голова:</strong> поясной план, нейтральный фон с узловым элементом</li>
+                    <li><strong>Детали:</strong> крупные планы узлов (световые линии, стыки, фактуры)</li>
+                    <li><strong>Документы:</strong> съёмка планшета/планов перпендикулярно, затем параллельный выезд</li>
+                    <li><strong>Общие планы:</strong> медленные панорамы и параллаксы по зонам</li>
+                    <li><strong>Переходы:</strong> плавные переходы между локациями, камера следует за ведущим</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- B-roll чек-лист -->
+        <section id="broll" class="mb-8">
+            <div class="section-header">
+                <h2 class="text-2xl font-bold">4. B-roll чек-лист по сценам</h2>
+            </div>
+            <div class="editable bg-gray-50 p-6 rounded-lg">
+                <h3 class="text-lg font-semibold mb-3">Демонтаж и подготовка</h3>
+                <ul class="list-disc pl-6 mb-6">
+                    <li>Фото «до»: бетонная коробка, старые перегородки</li>
+                    <li>Швы, штробы, места демонтажа</li>
+                    <li>Зоны бывших перегородок</li>
+                    <li>Экранные подписи: «демонтаж 29 м² — 30 450 ₽», «штробление 82 п.м — 31 570 ₽»</li>
+                </ul>
+                
+                <h3 class="text-lg font-semibold mb-3">Электрика</h3>
+                <ul class="list-disc pl-6 mb-6">
+                    <li>Пучки кабелей (541 п.м) с маркировками</li>
+                    <li>Электрический щит, автоматы, группы</li>
+                    <li>Группы под световые линии</li>
+                    <li>Подрозетники и распределительные коробки</li>
+                    <li>Экранная подпись: «Электромонтаж итого — 308 344 ₽»</li>
+                </ul>
+                
+                <h3 class="text-lg font-semibold mb-3">Сантехника</h3>
+                <ul class="list-disc pl-6 mb-6">
+                    <li>Узлы Hansgrohe/Grohe крупным планом</li>
+                    <li>Коллекторная группа FAR</li>
+                    <li>Душевой трап Tece drainline</li>
+                    <li>Система защиты от протечек</li>
+                    <li>Инсталляция Grohe</li>
+                </ul>
+                
+                <h3 class="text-lg font-semibold mb-3">Отделочные работы</h3>
+                <ul class="list-disc pl-6 mb-6">
+                    <li>Швы плитки, примыкания, раскладка</li>
+                    <li>Углы, запиленные под 45 градусов</li>
+                    <li>Декоративная штукатурка «замша» (фактура)</li>
+                    <li>Экранная подпись: «27 м² плитки на стены — 94 500 ₽»</li>
+                </ul>
+                
+                <h3 class="text-lg font-semibold mb-3">Премиум-решения</h3>
+                <ul class="list-disc pl-6 mb-6">
+                    <li>Световые линии: стыки стена→потолок, повороты</li>
+                    <li>Скрытые двери в потолок: примыкания, механизмы</li>
+                    <li>Раковина из керамогранита: кромки, слив</li>
+                    <li>Короб под ТВ: интеграция, скрытые коммуникации</li>
+                    <li>Внутрипольный конвектор: решётка, монтаж</li>
+                </ul>
+                
+                <h3 class="text-lg font-semibold mb-3">Планы и документы</h3>
+                <ul class="list-disc pl-6">
+                    <li>Листы проекта (стр. 5, 7, 14, 17, 18, 19) крупно</li>
+                    <li>Указка по ключевым зонам планов</li>
+                    <li>Зум на маркировки и отметки высот</li>
+                    <li>Фрагменты сметы с выделенными позициями</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Монтаж и графика -->
+        <section id="editing" class="mb-8">
+            <div class="section-header">
+                <h2 class="text-2xl font-bold">5. Монтаж и графика</h2>
+            </div>
+            <div class="editable bg-gray-50 p-6 rounded-lg">
+                <h3 class="text-lg font-semibold mb-3">Темп и ритм</h3>
+                <ul class="list-disc pl-6 mb-6">
+                    <li>Правило «6–8 секунд»: каждые 6–8 сек визуальный апдейт (B-roll, смена плана)</li>
+                    <li>Быстрые связки между сценами</li>
+                    <li>Главы с таймкодами для удобной навигации</li>
+                    <li>Паузы под появление экранных титров и цифр</li>
+                </ul>
+                
+                <h3 class="text-lg font-semibold mb-3">Графические элементы</h3>
+                <ul class="list-disc pl-6 mb-6">
+                    <li><strong>Шкалы и стрелки:</strong> простые, контрастные</li>
+                    <li><strong>Всплывающие суммы:</strong> у конкретных работ и узлов</li>
+                    <li><strong>Шапки разделов:</strong> «Электрика», «Сантехника», «Отделка»</li>
+                    <li><strong>Счётчик сумм:</strong> накопительный итог по ходу сцен</li>
+                    <li><strong>Таймкоды:</strong> оранжевые плашки с временными метками</li>
+                </ul>
+                
+                <h3 class="text-lg font-semibold mb-3">Работа с планами и сметой</h3>
+                <ul class="list-disc pl-6 mb-6">
+                    <li>Аккуратные зумы с подсветкой зоны маркером</li>
+                    <li>Подписи страниц: «стр.5», «стр.7», «стр.14» и т.д.</li>
+                    <li>Синхронизация движения указки с речью ведущего</li>
+                </ul>
+                
+                <h3 class="text-lg font-semibold mb-3">Цвет и звук</h3>
+                <ul class="list-disc pl-6 mb-6">
+                    <li><strong>Цветокоррекция:</strong> нейтральный LUT, естественные тона</li>
+                    <li><strong>Звук:</strong> чёткая речь, компрессия для выравнивания уровней</li>
+                    <li><strong>Музыка:</strong> лёгкий инструментальный фон без слов, низкий уровень</li>
+                </ul>
+                
+                <h3 class="text-lg font-semibold mb-3">Субтитры</h3>
+                <ul class="list-disc pl-6">
+                    <li>Автогенерация + ручная правка ключевых цифр и терминов</li>
+                    <li>Выделение CTA и важных моментов</li>
+                    <li>Корректная передача технических терминов</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- YouTube -->
+        <section id="youtube" class="mb-8">
+            <div class="section-header">
+                <h2 class="text-2xl font-bold">6. Текст описания YouTube и таймкоды</h2>
+            </div>
+            <div class="editable bg-gray-50 p-6 rounded-lg">
+                <h3 class="text-lg font-semibold mb-3">Варианты заголовков</h3>
+                <ul class="list-disc pl-6 mb-6">
+                    <li>Сколько на самом деле стоит ремонт «под ключ» в Новосибирске 2025? Реальная смета</li>
+                    <li>Реальная смета ремонта: 2 338 087 ₽ за работы на 67 м². Разбор по позициям</li>
+                    <li>Миф о «цене за метр» разрушен: честный разбор сметы ремонта в Новосибирске</li>
+                </ul>
+                
+                <h3 class="text-lg font-semibold mb-3">Описание видео</h3>
+                <div class="bg-blue-50 p-4 rounded-lg mb-6">
+                    <p class="mb-4">Миф про «цену за метр» разбираем на реальном объекте в Новосибирске. Планы, смета, фото и узлы — всё в кадре. Итог по работам: 2 338 087 ₽ на 67 м² в ЖК «Чикаго». </p>
+                    
+                    <p class="mb-4">📋 Что узнаете:</p>
+                    <p class="mb-4">• Почему «цена за квадратный метр» — это обман<br>
+                    • Из чего реально складывается стоимость работ<br>  
+                    • Где прячутся «бюджетные ловушки»<br>
+                    • Как защитить себя от переплаты в 20-30%</p>
+                    
+                    <p class="mb-4">🎯 Бесплатный выезд инженера-сметчика в Новосибирске. Расчёт детальной сметы за 48 часов.</p>
+                    
+                    <p class="font-semibold">📞 Телефон: [ВСТАВИТЬ]<br>
+                    🌐 Сайт: [ВСТАВИТЬ]<br>
+                    📱 Форма заявки: [ВСТАВИТЬ]</p>
+                </div>
+                
+                <h3 class="text-lg font-semibold mb-3">Таймкоды</h3>
+                <div class="bg-gray-100 p-4 rounded-lg">
+                    <p><strong>00:00</strong> Хук: миф о «цене за метр»</p>
+                    <p><strong>00:35</strong> Почему «цена за метр» не работает</p>
+                    <p><strong>02:30</strong> Разбор корзины «Работы»: демонтаж</p>
+                    <p><strong>03:30</strong> Инженерия: электрика 541 м кабеля</p>
+                    <p><strong>04:30</strong> Световые линии: скрытый монтаж</p>
+                    <p><strong>05:00</strong> Сантехника: коллектор FAR и Grohe</p>
+                    <p><strong>06:00</strong> Отделочные работы: штукатурка «замша»</p>
+                    <p><strong>07:30</strong> Бюджетные ловушки: встроенная душевая</p>
+                    <p><strong>08:30</strong> Скрытые расходы: доставка и вывоз</p>
+                    <p><strong>09:30</strong> Как выбрать честного подрядчика</p>
+                    <p><strong>11:00</strong> CTA: бесплатная смета за 48 часов</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA -->
+        <section id="cta" class="mb-8">
+            <div class="section-header">
+                <h2 class="text-2xl font-bold">7. Готовые формулировки CTA</h2>
+            </div>
+            <div class="editable bg-gray-50 p-6 rounded-lg">
+                <h3 class="text-lg font-semibold mb-3">Основной CTA (для видео и описания)</h3>
+                <div class="bg-green-50 border-l-4 border-green-500 p-4 mb-6">
+                    <p class="font-semibold mb-2">Рассчитаем подробную смету бесплатно за 48 часов</p>
+                    <p>Запишитесь на встречу с инженером-сметчиком для точных замеров и согласования видов и объёмов работ</p>
+                </div>
+                
+                <h3 class="text-lg font-semibold mb-3">CTA для экранных плашек</h3>
+                <ul class="list-disc pl-6 mb-6">
+                    <li>«Бесплатный расчёт сметы за 48 часов → Записаться»</li>
+                    <li>«Получить детальную смету → QR-код»</li>
+                    <li>«Выезд инженера-сметчика бесплатно → Форма»</li>
+                </ul>
+                
+                <h3 class="text-lg font-semibold mb-3">Закреплённый комментарий</h3>
+                <div class="bg-blue-50 p-4 rounded-lg mb-6">
+                    <p>«Хотите узнать реальную стоимость вашего ремонта? Сделаем подробную смету бесплатно за 48 часов. Запишитесь на встречу с инженером-сметчиком — точные замеры и согласование объёмов работ. Ссылка в описании ↓»</p>
+                </div>
+                
+                <h3 class="text-lg font-semibold mb-3">Дополнительные полезности</h3>
+                <ul class="list-disc pl-6">
+                    <li>Чек-лист «20 статей сметы» (бесплатно)</li>
+                    <li>Калькулятор предварительной стоимости</li>
+                    <li>Примеры детальных смет по другим объектам</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Чек-листы -->
+        <section id="checklist" class="mb-8">
+            <div class="section-header">
+                <h2 class="text-2xl font-bold">8. Чек-листы подготовки</h2>
+            </div>
+            <div class="editable bg-gray-50 p-6 rounded-lg">
+                <h3 class="text-lg font-semibold mb-3">До съёмки</h3>
+                <div class="mb-6">
+                    <div class="checklist-item">
+                        <input type="checkbox"> <span>Убрать пыль, инструмент, личные вещи</span>
+                    </div>
+                    <div class="checklist-item">
+                        <input type="checkbox"> <span>Проверить все световые сценарии</span>
+                    </div>
+                    <div class="checklist-item">
+                        <input type="checkbox"> <span>Зарядить аккумуляторы, подготовить карты памяти</span>
+                    </div>
+                    <div class="checklist-item">
+                        <input type="checkbox"> <span>Распечатать планы (стр.5,7,14,17,18,19) формат А3</span>
+                    </div>
+                    <div class="checklist-item">
+                        <input type="checkbox"> <span>Подготовить маркеры/стикеры для указок на планах</span>
+                    </div>
+                    <div class="checklist-item">
+                        <input type="checkbox"> <span>Сверить сметные суммы, выделить ключевые позиции</span>
+                    </div>
+                    <div class="checklist-item">
+                        <input type="checkbox"> <span>Подготовить фото «до» в высоком разрешении</span>
+                    </div>
+                </div>
+                
+                <h3 class="text-lg font-semibold mb-3">В день съёмки</h3>
+                <div class="mb-6">
+                    <div class="checklist-item">
+                        <input type="checkbox"> <span>Тестовая запись звука в каждой локации</span>
+                    </div>
+                    <div class="checklist-item">
+                        <input type="checkbox"> <span>Записать «чистый шум» помещения 20-30 сек</span>
+                    </div>
+                    <div class="checklist-item">
+                        <input type="checkbox"> <span>2-3 дубля каждого блока сценария</span>
+                    </div>
+                    <div class="checklist-item">
+                        <input type="checkbox"> <span>Записать «реакции» ведущего (кивки, паузы)</span>
+                    </div>
+                    <div class="checklist-item">
+                        <input type="checkbox"> <span>Снять все узлы из B-roll списка</span>
+                    </div>
+                    <div class="checklist-item">
+                        <input type="checkbox"> <span>Отснять планы перпендикулярно + с выездом</span>
+                    </div>
+                    <div class="checklist-item">
+                        <input type="checkbox"> <span>Контрольный просмотр ключевых кадров</span>
+                    </div>
+                </div>
+                
+                <h3 class="text-lg font-semibold mb-3">Пост-продакшн</h3>
+                <div class="mb-6">
+                    <div class="checklist-item">
+                        <input type="checkbox"> <span>Синхронизация звука с видео</span>
+                    </div>
+                    <div class="checklist-item">
+                        <input type="checkbox"> <span>Цветокоррекция под единый стиль</span>
+                    </div>
+                    <div class="checklist-item">
+                        <input type="checkbox"> <span>Вшить титры с суммами и названиями листов</span>
+                    </div>
+                    <div class="checklist-item">
+                        <input type="checkbox"> <span>Добавить главы и таймкоды</span>
+                    </div>
+                    <div class="checklist-item">
+                        <input type="checkbox"> <span>Создать анимированные плашки CTA</span>
+                    </div>
+                    <div class="checklist-item">
+                        <input type="checkbox"> <span>Автосубтитры + ручная правка цифр</span>
+                    </div>
+                    <div class="checklist-item">
+                        <input type="checkbox"> <span>Финальная проверка: ₽, м², п.м, названий брендов</span>
+                    </div>
+                    <div class="checklist-item">
+                        <input type="checkbox"> <span>Создать превью (thumbnail) в 2-3 вариантах</span>
+                    </div>
+                    <div class="checklist-item">
+                        <input type="checkbox"> <span>Подготовить описание с таймкодами и ссылками</span>
+                    </div>
+                </div>
+
+                <h3 class="text-lg font-semibold mb-3">Контрольные вопросы перед публикацией</h3>
+                <div>
+                    <div class="checklist-item">
+                        <input type="checkbox"> <span>Все суммы соответствуют реальной смете?</span>
+                    </div>
+                    <div class="checklist-item">
+                        <input type="checkbox"> <span>CTA ведёт на рабочую форму/телефон?</span>
+                    </div>
+                    <div class="checklist-item">
+                        <input type="checkbox"> <span>QR-код корректно считывается?</span>
+                    </div>
+                    <div class="checklist-item">
+                        <input type="checkbox"> <span>Нет фактических ошибок в названиях брендов?</span>
+                    </div>
+                    <div class="checklist-item">
+                        <input type="checkbox"> <span>Звук чистый на всех устройствах воспроизведения?</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Контакты -->
+        <section class="mb-8 border-t-2 border-gray-200 pt-8">
+            <div class="text-center">
+                <div class="editable bg-gray-100 p-6 rounded-lg">
+                    <h3 class="text-xl font-bold mb-4">Контакты и QR</h3>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div>
+                            <p class="mb-2"><strong>Компания:</strong> «Верона»</p>
+                            <p class="mb-2"><strong>Руководитель:</strong> Руслан Мальцев</p>
+                            <p class="mb-2"><strong>Телефон:</strong> [ВСТАВИТЬ НОМЕР]</p>
+                            <p class="mb-2"><strong>Сайт:</strong> [ВСТАВИТЬ САЙТ]</p>
+                            <p><strong>Email:</strong> [ВСТАВИТЬ EMAIL]</p>
+                        </div>
+                        <div>
+                            <p class="mb-4"><strong>QR-код для быстрой записи:</strong></p>
+                            <div class="w-32 h-32 bg-gray-300 mx-auto flex items-center justify-center rounded">
+                                <span class="text-gray-600 text-sm">QR-код</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
     </div>
 
     <script>
-        // Smooth scrolling for navigation links
-        document.querySelectorAll('.nav-link').forEach(link => {
-            link.addEventListener('click', function(e) {
+        // Режим редактирования
+        document.getElementById('edit-toggle').addEventListener('click', function() {
+            const body = document.body;
+            const isEditMode = body.classList.contains('edit-mode');
+            
+            if (isEditMode) {
+                body.classList.remove('edit-mode');
+                document.querySelectorAll('.editable').forEach(el => el.contentEditable = false);
+                this.innerHTML = '<i class="fas fa-edit mr-2"></i>Режим редактирования';
+                this.className = 'bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-md text-sm font-medium transition-colors';
+            } else {
+                body.classList.add('edit-mode');
+                document.querySelectorAll('.editable').forEach(el => el.contentEditable = true);
+                this.innerHTML = '<i class="fas fa-save mr-2"></i>Выйти из режима редактирования';
+                this.className = 'bg-orange-600 hover:bg-orange-700 text-white px-4 py-2 rounded-md text-sm font-medium transition-colors';
+            }
+        });
+
+        // Сохранение HTML
+        document.getElementById('save-html').addEventListener('click', function() {
+            const htmlContent = document.documentElement.outerHTML;
+            const blob = new Blob([htmlContent], { type: 'text/html' });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = 'video_instruction_edited.html';
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+            URL.revokeObjectURL(url);
+        });
+
+        // Экспорт в PDF
+        document.getElementById('export-pdf').addEventListener('click', function() {
+            window.print();
+        });
+
+        // Плавная прокрутка к якорям
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
                 e.preventDefault();
-                const targetId = this.getAttribute('href');
-                const targetElement = document.querySelector(targetId);
-                
-                if (targetElement) {
-                    targetElement.scrollIntoView({
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
                         behavior: 'smooth',
                         block: 'start'
                     });
@@ -564,26 +828,19 @@
             });
         });
 
-        // Highlight active navigation link
-        window.addEventListener('scroll', function() {
-            const sections = document.querySelectorAll('.section');
-            const navLinks = document.querySelectorAll('.nav-link');
-            
-            let currentSection = '';
-            sections.forEach(section => {
-                const sectionTop = section.offsetTop - 120;
-                const sectionHeight = section.offsetHeight;
-                if (pageYOffset >= sectionTop && pageYOffset < sectionTop + sectionHeight) {
-                    currentSection = section.getAttribute('id');
-                }
+        // Сохранение состояния чекбоксов
+        document.querySelectorAll('input[type="checkbox"]').forEach(checkbox => {
+            checkbox.addEventListener('change', function() {
+                localStorage.setItem('checkbox_' + Array.from(document.querySelectorAll('input[type="checkbox"]')).indexOf(this), this.checked);
             });
-            
-            navLinks.forEach(link => {
-                link.classList.remove('active');
-                if (link.getAttribute('href') === '#' + currentSection) {
-                    link.classList.add('active');
-                }
-            });
+        });
+
+        // Восстановление состояния чекбоксов
+        document.querySelectorAll('input[type="checkbox"]').forEach((checkbox, index) => {
+            const saved = localStorage.getItem('checkbox_' + index);
+            if (saved !== null) {
+                checkbox.checked = saved === 'true';
+            }
         });
     </script>
 </body>
